@@ -6,7 +6,8 @@
 	};
 </script>
 
-<button on:click={increment}>
+<button on:click={increment}
+           on:keydown={(e) => { if (e.key === 'Enter' || e.key === ' ') (increment)(e) }}>
 	Clicks: {count}
 </button>
 

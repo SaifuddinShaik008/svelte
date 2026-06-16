@@ -23,7 +23,7 @@
 <div class="article-preview">
 	<div class="article-meta">
 		<a href="/profile/@{article.author.username}">
-			<img src={article.author.image} alt={article.author.username} />
+			<img src={article.author.image} alt="" />
 		</a>
 
 		<div class="info">
@@ -33,11 +33,8 @@
 
 		{#if user}
 			<div class="pull-xs-right">
-				<button
-					class="btn btn-sm {article.favorited ? 'btn-primary' : 'btn-outline-primary'}"
-					on:click={toggle_favorite}
-				>
-					<i class="ion-heart" />
+				<button class="btn btn-sm {article.favorited ? 'btn-primary' : 'btn-outline-primary'}" on:click={toggle_favorite}>
+					<i class="ion-heart"></i>
 					{article.favoritesCount}
 				</button>
 			</div>

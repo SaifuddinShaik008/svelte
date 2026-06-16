@@ -1,4 +1,4 @@
-<script context="module">
+<a href="#main" class="skip-link" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;">Skip to main content</a><script context="module">
 	export async function load({ page, fetch }) {
 		const res = await fetch(`/profile/@${page.params.user}.json`);
 
@@ -60,15 +60,13 @@
 
 					{#if is_user}
 						<a href="/settings" class="btn btn-sm btn-outline-secondary action-btn">
-							<i class="ion-gear-a" />
+							<i class="ion-gear-a"></i>
 							Edit Profile Settings
 						</a>
 					{:else if $session.user}
-						<button
-							class="btn btn-sm action-btn {profile.following ? 'btn-secondary' : 'btn-outline-secondary'}"
-							on:click={toggle_following}
-						>
-							<i class="ion-plus-round" />
+						<button class="btn btn-sm action-btn {profile.following ? 'btn-secondary' : 'btn-outline-secondary'}" on:click={toggle_following}
+           on:keydown={(e) => { if (e.key === 'Enter' || e.key === ' ') (toggle_following)(e) }}>
+							<i class="ion-plus-round"></i>
 							{profile.following ? 'Unfollow' : 'Follow'}
 							{profile.username}
 						</button>
@@ -84,26 +82,16 @@
 				<div class="articles-toggle">
 					<ul class="nav nav-pills outline-active">
 						<li class="nav-item">
-							<a
-								href="/profile/@{profile.username}"
-								class="nav-link"
-								rel="prefetch"
-								class:active={!is_favorites}
-							>Articles</a>
+							<a href="/profile/@{profile.username}" class="nav-link" rel="prefetch" class:active={!is_favorites}>Articles</a>
 						</li>
 
 						<li class="nav-item">
-							<a
-								href="/profile/@{profile.username}/favorites"
-								class="nav-link"
-								rel="prefetch"
-								class:active={is_favorites}
-							>Favorites</a>
+							<a href="/profile/@{profile.username}/favorites" class="nav-link" rel="prefetch" class:active={is_favorites}>Favorites</a>
 						</li>
 					</ul>
 				</div>
 
-				<slot />
+				<slot></slot>
 			</div>
 		</div>
 	</div>

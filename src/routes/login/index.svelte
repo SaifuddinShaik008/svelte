@@ -51,7 +51,7 @@
 
 				<form on:submit|preventDefault={submit}>
 					<fieldset class="form-group">
-						<input class="form-control form-control-lg" type="email" required placeholder="Email" bind:value={email}>
+						<input class="form-control form-control-lg" type="email" required placeholder="Email" bind:value={email} aria-label="Form Control Form Control Lg">
 					</fieldset>
 					<fieldset class="form-group">
 						<input class="form-control form-control-lg" type="password" required placeholder="Password" bind:value={password}>

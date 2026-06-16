@@ -28,21 +28,9 @@
 	};
 </script>
 
-<form
-	action="/article/{slug}/comments.json"
-	method="post"
-	class="card comment-form"
-	use:ajax={{ onsubmit, onresponse }}
->
+<form action="/article/{slug}/comments.json" method="post" class="card comment-form" use:ajax={{ onsubmit, onresponse }}>
 	<div class="card-block">
-		<textarea
-			disabled={submitting}
-			class="form-control"
-			name="comment"
-			placeholder="Write a comment..."
-			bind:value={body}
-			rows="3"
-		/>
+		<textarea disabled={submitting} class="form-control" name="comment" placeholder="Write a comment..." bind:value={body} rows="3" aria-label="Comment"></textarea>
 	</div>
 
 	<div class="card-footer">
